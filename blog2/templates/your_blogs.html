@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{%block start%}
+
+<div class="container mt-4 pt-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">S.NO</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for blog in blogs%}
+            <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{blog.title}}</td>
+              <td>{{blog.content|safe|truncatewords:100}}</td>
+              <td>@mdo</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+      </table>
+
+</div>
+
+
+{%endblock%}

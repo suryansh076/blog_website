@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{%block start%}
+
+<div class="container">
+    {% for message in messages %}
+    <div class="alert alert-{{message.tag}} alert-dismissible fade show mt-3" role=alert>
+        <div class="alert alert-primary" role="alert">
+            {{message}}
+          </div>
+        {%endfor%}
+    <a href="{%url 'your_blogs' %}" class="btn btn-warning mt-5 mb-2">Your blogs</a>
+    <form  method="post" class="mt-5 pt-5 mb-10 pb-10" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <label>Enter blog title</label>
+                <input type="text" class="form-control" placeholder="Enter title" name="title">
+            </div>
+        </div>
+
+        <div class="col-md-12 mt-2 pt-2">
+            {{form.media}}
+            {{form.as_p}}
+        </div>
+        <div class="col-md-12">
+
+            <input type="file" name="image"    class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary mt-4 mb-2">Create Blog</button>
+    </form>
+
+</div>
+
+
+{%endblock%}
