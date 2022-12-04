@@ -40,7 +40,7 @@
                 <i class="far fa-clock"></i>Created on : {{blog.created_at}}
               </p>
               <p class="my-1 text-muted text-sm">
-                {{blog.content|safe|slice:"0:2000"|truncatewords:10}}
+                {{blog.content|safe|slice:"0:2000"|truncatewords:10}}..
                 <!-- {{blog.content}} -->
               </p>
               <a class="btn btn-link pl-0 letter-spacing-1" href="{% url 'blog_detail' blog.slug %}">Read more<i

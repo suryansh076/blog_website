@@ -139,4 +139,11 @@ def user_profile(request,token):
 
 def account_verfication(request,token):
     print(token)
+    verify_user=profile.objects.filter(token=token).first()
+    if verify_user is not None:
+        print("hello")
+        verify_user.verify=True
+        verify_user.save()
+        messages.success(request,"All set now you can log in")
+        return redirect('login')
     return render(request,'error.html')
